@@ -1,0 +1,117 @@
+ADDITION 
+1.INTERNAL MEMORY
+Org 0000h
+Mov r0,23h
+Mov a,24h
+Add a,r0
+End
+
+2.EXTERNAL MEMORY
+Org 0000h
+Mov dptr,#5000h
+Movx a,@dptr
+Mov r1,a
+Inc dptr
+Movx a,@dptr 
+Add a,r1
+Mov dptr,#5005h
+Movx @dptr,a
+end 
+
+3.IMMEDIATE 
+Org 0000h
+Mov r0,#23h
+Mov a,#24h
+Add a,r0
+End
+
+SUBTRACTION
+1.INTERNAL
+org 0000h
+mov r0,22h
+ mov a,28h
+ subb a,r0
+ end 
+ 
+2.EXTERNAL
+ org 0000h
+ mov dptr,#4000h
+ movx a,@dptr
+ mov r0,a
+ inc dptr
+ movx a,@dptr
+ subb a,r0
+ inc dptr
+ movx @dptr,a
+ end
+
+
+3.IMMEDIATE
+org 0000h
+mov r0,#10h
+ mov a,#12h
+ subb a,r0
+ end 
+
+MULTIPLICATION
+1.INTERNAL
+org 0000h
+mov b,23h
+ mov a,26h
+ mul ab
+ end
+
+2.EXTERNAL
+org 0000h
+ mov dptr,#5000h
+ movx a,@dptr
+ mov b,a
+ inc dptr
+ movx a,@dptr
+ mul ab
+ inc dptr
+ movx @dptr,a
+ end 
+
+3.IMMEDIATE
+org 0000h
+mov b,#04h
+ mov a,#03h
+ mul ab
+ end 
+
+DIVISION
+1.INTERNAL
+ org 0000h
+mov a,27h
+mov b,28h
+div ab
+end
+2.EXTERNAL
+org 0000h
+mov dptr,#5000h
+movx a,@dptr
+mov b,a
+inc dptr
+movx a,@dptr
+div ab
+inc dptr
+movx @dptr,a
+end 
+3.IMMEDIATE
+org 0000h
+mov a,#03h
+mov b,#09h
+div ab
+end 
+
+
+
+
+
+
+
+
+
+
+
