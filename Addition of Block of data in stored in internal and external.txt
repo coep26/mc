@@ -1,0 +1,24 @@
+//Addition of Block of data in stored memory
+
+org 0000h
+mov r0,#51h
+mov a,#00h
+mov r3,#05h
+loop: add a,@r0
+inc r0
+djnz r3,loop
+end
+
+//Addition of block of data stored in external locations
+
+org 0000h
+mov dptr,#2000h
+CLR a
+mov r7,#00
+mov r6,#05
+back :movx a,@dptr
+add a,r7
+mov r7,a
+inc dptr
+djnz r6,back
+end

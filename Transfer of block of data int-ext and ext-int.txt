@@ -1,0 +1,26 @@
+//Transfer of block of data internal to external memory location
+
+org 0000h
+mov r1,#20h
+mov dptr,#1000h
+mov r0,#05h
+clr a
+loop: mov a,@r1
+movx @dptr,a 
+inc r1
+inc dptr
+djnz r0,loop
+end
+
+//Transfer block of data from external to internal memory locations
+
+org 0000h
+mov dptr,#1000h
+mov r1,#20h
+mov r0,#05h
+loop: movx a,@dptr
+mov @r1,a
+inc dptr
+inc r1
+djnz r0,loop
+end
